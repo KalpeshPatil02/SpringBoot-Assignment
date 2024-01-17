@@ -1,0 +1,31 @@
+package com.kalpesh.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.kalpesh.pojo.Student;
+import com.kalpesh.repository.StudentRepository;
+
+@RestController
+@RequestMapping("/api")
+public class StudentController {
+	
+	@Autowired
+	 StudentRepository studentrepository;
+
+	@PostMapping("/student")
+	public String createStudent(Student student)
+	{
+		  try {
+			  studentrepository.save(student);
+	            return "Student inserted successfully";
+	        } catch (Exception e) {
+	            return "Failed to insert student";
+	        }
+		
+	}
+	
+	
+}

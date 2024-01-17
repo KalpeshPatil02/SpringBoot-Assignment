@@ -1,0 +1,5 @@
+package com.kalpesh.model;
+
+public class Student {
+
+}
